@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animal Management System</title>
+</head>
+<body>
+  <h1>Animal Management System</h1>
+  
+  <!-- Animal Submission Form -->
+  <h2>Submit Animal Information</h2>
+  <form action="" method="post">
+    <label for="animal_name">Name of the animal:</label><br>
+    <input type="text" id="animal_name" name="animal_name" required><br><br>
+
+    <label for="category">Category:</label><br>
+    <select id="category" name="category" required>
+      <option value="Mammal">Mammal</option>
+      <option value="Bird">Bird</option>
+      <option value="Reptile">Reptile</option>
+    </select><br><br>
+
+    <label for="image">Image:</label><br>
+    <input type="file" id="image" name="image" accept="image/*" required><br><br>
+
+    <label for="description">Description:</label><br>
+    <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
+
+    <label for="life_expectancy">Life Expectancy:</label><br>
+    <select id="life_expectancy" name="life_expectancy" required>
+      <option value="2-5">2-5 years</option>
+      <option value="5-10">5-10 years</option>
+      <option value="10+">More than 10 years</option>
+    </select><br><br>
+
+    <label for="captcha">Captcha:</label><br>
+    <!-- Implement Captcha here --><br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+  
+  <!-- Animal Listing -->
+  <h2>List of Animals</h2>
+  <table border="1">
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Description</th>
+      <th>Life Expectancy</th>
+      <th>Actions</th>
+    </tr>
+    <?php
+    // Simulated data for demonstration purposes
+    $animals = [
+        ["Lion", "Mammal", "The lion is a species in the family Felidae...", "10+ years"],
+        ["Elephant", "Mammal", "Elephants are large mammals of the family Elephantidae...", "50+ years"],
+        ["Tiger", "Mammal", "The tiger (Panthera tigris) is the largest extant cat species...", "8-10 years"]
+    ];
+
+    // Display animal information in the table
+    foreach ($animals as $animal) { ?>
+      <tr>
+        <td><?php echo $animal[0]; ?></td>
+        <td><?php echo $animal[1]; ?></td>
+        <td><?php echo $animal[2]; ?></td>
+        <td><?php echo $animal[3]; ?></td>
+        <td>
+          <a href="#">Edit</a>
+          <a href="#">Delete</a>
+        </td>
+      </tr>
+    <?php } ?>
+  </table>
+</body>
+</html>
